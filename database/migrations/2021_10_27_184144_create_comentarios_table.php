@@ -22,7 +22,7 @@ class CreateComentariosTable extends Migration
 
 
             $table->foreign('usuario_id')->references('id')
-                                       ->on('usuarios')
+                                       ->on('users')
                                        ->onDelete('cascade')
                                        ->onUpdate('cascade');
             $table->foreign('folio_id')->references('id')

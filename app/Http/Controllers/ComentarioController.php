@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Folio;
 use App\Models\Estatus;
-use App\Models\Usuario;
+use App\Models\User;
 use App\Models\Comentario;
 use Illuminate\Support\Facades\DB;
 
@@ -20,14 +20,14 @@ class ComentarioController extends Controller
     public function index()
     {
 
-       /* $auxiliar = DB::table('comentarios as c')
-        ->join('usuarios as u', 'u.id', '=', 'c.usuario_id')
+        $auxiliares = DB::table('comentarios as c')
+        ->join('users as u', 'u.id', '=', 'c.usuario_id')
         ->join('folios as f', 'f.id', '=', 'c.folio_id')
-        ->select('c.id','usuario_id','folio_id','f.codigo','f.titulo', 'c.comentario', 'u.nombre')
+        ->select('c.id','usuario_id','folio_id','f.codigo','f.titulo', 'c.comentario', 'u.name as nombre')
         ->get();
-        echo($auxiliar);*/
+        //echo($auxiliar);
 
-        $auxiliares = DB::select('SELECT c.id as id, f.codigo as codigo, c.comentario as comentario, u.nombre as nombre FROM comentarios c inner join usuarios u on u.id = c.usuario_id INNER JOIN folios f on f.id = c.folio_id',);
+        //$auxiliares = DB::select('SELECT c.id as id, f.codigo as codigo, c.comentario as comentario, u.nombre as nombre FROM comentarios c inner join usuarios u on u.id = c.usuario_id INNER JOIN folios f on f.id = c.folio_id',);
 
 
        // $auxiliares = Comentario::all();//DB::table('comentarios as c')
@@ -50,7 +50,7 @@ class ComentarioController extends Controller
     public function create($folio_id){
 
         $folio = Folio::find($folio_id);
-        $usuarios = Usuario::all();
+        $usuarios = User::all();
         return view('comentario.create')->with('folio', $folio)->with('usuarios',$usuarios);
     }
 
@@ -62,7 +62,18 @@ class ComentarioController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $usuarios = new Comentario();
+
+    //     $id = Folio::find()
+
+    //     $usuarios->name = $request->get('nombre');
+    //     $usuarios->lastname = $request->get('autor');
+    //     $usuarios->email = $request->get('comentario');
+    //    // Wesley
+
+    //     $usuarios->save();
+
+        return redirect('/comentarios');
     }
 
    
@@ -75,7 +86,7 @@ class ComentarioController extends Controller
      */
     public function edit($id)
     {
-        
+        return redirect('/comentarios');
     }
 
     /**
@@ -87,7 +98,7 @@ class ComentarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        return redirect('/comentarios');
         
     }
 

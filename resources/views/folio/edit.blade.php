@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'CRUD con Laravel 8')
+@section('title', 'Challenge')
 
 @section('content_header')
-    <h1>Editar Follio</h1>
+    <h1>Editar Folio</h1>
 @stop
 @section('content')
 <form action="/folios/{{$folio->id}}" method="POST">

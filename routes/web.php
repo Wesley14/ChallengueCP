@@ -21,7 +21,7 @@ Route::resource('users', 'App\Http\Controllers\UserController');
 Route::resource('usuarios', 'App\Http\Controllers\UsuarioController');
 Route::resource('folios', 'App\Http\Controllers\FolioController');
 Route::resource('comentarios', 'App\Http\Controllers\ComentarioController');
-//Route::resource('comentarios/{id}', 'App\Http\Controllers\ComentarioController');
+Route::resource('comentarios/{id}', 'App\Http\Controllers\ComentarioController');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

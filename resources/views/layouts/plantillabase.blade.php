@@ -8,11 +8,12 @@
     @yield('css')
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <title>CRUD</title>
   </head>
   <body>
-    <h1 class="bg-primary text-white text-center">CRUD con Laravel 8 y Bootstrap 5</h1>
+    <h1 class="bg-primary text-white text-center">Challenge</h1>
 
     <div class="container">
         @yield('contenido')

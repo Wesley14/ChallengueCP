@@ -1,66 +1,46 @@
 
 @extends('adminlte::page')
 
-@section('title', 'CRUD con Laravel 8')
+@section('title', 'Challenge')
 
 @section('content_header')
-    <h1>Listado de folios</h1>
+    <h1>Comentarios</h1>
 @stop
 
 @section('content')
-<a href="comentarios/create" class="btn btn-dark">Nuevo Folio</a>
-&nbsp;
+
 <br>
 <br>
-<table id="coments" class="table table-sm  table-striped table-bordered shadow-sm mt-4" style="width:100%">
-  <thead class="bg-primary thead-dark text-white">
-      <tr>
-          <th scope="col">Folio</th>
-          <th scope="col">Titulo</th>
-          <th scope="col">Autor</th>
-          <th scope="col">Responsable</th>
-          <th scope="col">Descripción</th>
-          <th scope="col">Fecha Resolución</th>
-          <th scope="col">Estatus</th>
-          <th scope="col">Acciones</th>
-         
-          <tbody>
-          @foreach($auxiliares as $auxiliar)
-              <tr>
-                  
-                  <td>{{$auxiliar->comentario}}</td>
-                  <td>{{$auxiliar->comentario}}</td>
 
-
-                  <td>
-                      <form action="{{route ('comentarios.destroy', $aux->id)}}" method="POST">
-                        <a href="/folios/{{$aux->id}}/edit" class="btn btn-info">Editar</a>
-                        <a href="/comentarios/{{$aux->id}}/create" class="btn btn-info">Comentar</a>
-                        @csrf
-                        @method('DELETE')
-                        <button class="btn btn-danger">Borrar</button>
-                    </form>
-
-                  </td>
-              </tr>
-              @endforeach
-          </tbody>
-          </tbody>
-
-      </tr>
-  </thead>
-</table>
+<div class="accordion" id="accordionFlushExample">
+@foreach($auxiliares as $auxiliar)
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="heading{{$auxiliar->id}}">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+       Folio: {{$auxiliar->codigo}} Autor: {{$auxiliar->nombre}}
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>{{$auxiliar->comentario}}</strong> 
+      </div>
+    </div>
+  </div>
+  @endforeach
+</div>
 @stop
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
     <link href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 @stop
 
 @section('js')
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 <script>
 $(document).ready(function() {

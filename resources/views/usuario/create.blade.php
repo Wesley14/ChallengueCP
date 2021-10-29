@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'CRUD con Laravel 8')
+@section('title', 'Challenge')
 
 @section('content_header')
     <h1>Nuevo Usuario</h1>
