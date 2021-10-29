@@ -16,23 +16,26 @@
       <tr>
           
           <th scope="col">Nombre</th>
-          <th scope="col">Apellido</th>
           <th scope="col">Correo</th>
-          <th scope="col">Fecha Nacimiento</th>
+          <th scope="col">Tipo Usuario</th>
           <th scope="col">Acciones</th>
           <tbody>
               @foreach($usuarios as $usuario)
               <tr>
                   
-                  <td>{{$usuario->nombre}}</td>
-                  <td>{{$usuario->apellido}}</td>
-                  <td>{{$usuario->correo}}</td>
-                  <td>{{$usuario->fecha_nacimiento}}</td>
+                  <td>{{$usuario->name}} {{$usuario->lastname}}</td>
+                  <td>{{$usuario->email}}</td>
+                  @if($usuario->typeuser == 1)
+                  <td>Administrador</td>
+                  @else
+                  <td>Usuario</td>
+                  @endif
+                  
                   <td>
                       <form action="{{route ('usuarios.destroy', $usuario->id)}}" method="POST">
-                        @if($usuario->nombre == 'root')
+                       
                         <a href="/usuarios/{{$usuario->id}}/edit" class="btn btn-info">Editar</a>
-                        @endif
+                        
                         @csrf
                         @method('DELETE')
                         <button class="btn btn-danger">Borrar</button>

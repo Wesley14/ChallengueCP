@@ -26,8 +26,8 @@ class CreateFoliosTable extends Migration
 
 
 
-            $table->foreign('autor_id')->references('id')->on('usuarios');
-            $table->foreign('responsable_id')->references('id')->on('usuarios');
+            $table->foreign('autor_id')->references('id')->on('users');
+            $table->foreign('responsable_id')->references('id')->on('users');
             $table->foreign('estatus_id')->references('id')->on('estatuses');
         });
     }

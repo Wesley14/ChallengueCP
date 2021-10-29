@@ -23,7 +23,9 @@
           <th scope="col">Fecha Resolución</th>
           <th scope="col">Estatus</th>
           <th scope="col">Acciones</th>
-         
+          @foreach($folios as $folio)
+           echo({{$folio->codigo}});
+          @endforeach
           <tbody>
           @foreach($folios as $folio)
               <tr>

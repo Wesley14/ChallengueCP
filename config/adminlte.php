@@ -245,7 +245,7 @@ return [
         ['header' => 'Opciones'],
         [
             'text' => 'Usuario',
-            'url'  => 'usuarios',
+            'url'  => 'users',
             'icon' => 'fas fa-fw fa-user',
         ],
         [

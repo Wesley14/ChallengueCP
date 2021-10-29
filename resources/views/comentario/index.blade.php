@@ -25,12 +25,11 @@
           <th scope="col">Acciones</th>
          
           <tbody>
-          @foreach($auxiliar as $aux)
+          @foreach($auxiliares as $auxiliar)
               <tr>
                   
-                  <td>{{$aux->codigo}}</td>
-                  <td>{{$aux->nombre}}</td>
-                  <td>{{$aux->comentario}}</td>
+                  <td>{{$auxiliar->comentario}}</td>
+                  <td>{{$auxiliar->comentario}}</td>
 
 
                   <td>

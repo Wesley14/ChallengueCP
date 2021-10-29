@@ -20,14 +20,26 @@ class ComentarioController extends Controller
     public function index()
     {
 
-        $auxiliar = DB::table('comentarios as c')
+       /* $auxiliar = DB::table('comentarios as c')
         ->join('usuarios as u', 'u.id', '=', 'c.usuario_id')
         ->join('folios as f', 'f.id', '=', 'c.folio_id')
-        ->select('c.id','f.codigo','f.titulo', 'c.comentario', 'u.nombre')
+        ->select('c.id','usuario_id','folio_id','f.codigo','f.titulo', 'c.comentario', 'u.nombre')
         ->get();
+        echo($auxiliar);*/
+
+        $auxiliares = DB::select('SELECT c.id as id, f.codigo as codigo, c.comentario as comentario, u.nombre as nombre FROM comentarios c inner join usuarios u on u.id = c.usuario_id INNER JOIN folios f on f.id = c.folio_id',);
 
 
-        return view('comentario.index')->with('auxiliar',$auxiliar);
+       // $auxiliares = Comentario::all();//DB::table('comentarios as c')
+        //->join('usuarios as u', 'u.id', '=', 'c.usuario_id')
+        //->select('c.id','c.usuario_id','c.folio_id', 'c.comentario', 'u.nombre')
+        //->get();
+         
+        //echo($auxiliares);
+
+     
+
+        return view('comentario.index')->with('auxiliares',$auxiliares);
     }
 
     /**

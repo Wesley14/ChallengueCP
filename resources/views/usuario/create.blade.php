@@ -6,7 +6,7 @@
     <h1>Nuevo Usuario</h1>
 @stop
 @section('content')
-<form action="/usuarios" method="POST">
+<form action="/users" method="POST">
 @csrf
 <div class="mb-3">
   <label for="" class="form-label">Nombre:</label>
@@ -21,13 +21,24 @@
   <input id="correo" name="correo" type="text"  class="form-control" tabindex=3 placeholder="Correo...">
 </div>
 <div class="mb-3">
+  <label for="" class="form-label">Contraseña:</label>
+  <input id="contraseña" name="contraseña" type="password"  class="form-control" tabindex=3 placeholder="Correo...">
+</div>
+<div class="mb-3">
   <label for="" class="form-label">Fecha de Nacimiento:</label>
   <input id="fecha_nacimiento" name="fecha_nacimiento" type="date"  class="form-control" tabindex=4 placeholder="">
 </div>
+<div class="form-group">
+    <label for="exampleFormControlSelect1">Autor:</label>
+    <select class="form-control"  id="tipousuario" name="tipousuario">
+      <option value="0">Usuario</option>
+      <option value="0">Administrador</option>
+    </select>
+  </div>
 
 
 
-<a href="/usuarios" class="btn btn-secondary" tabindex=5>Cancelar</a>
+<a href="/users" class="btn btn-secondary" tabindex=5>Cancelar</a>
 <button type="submit" class="btn btn-primary" tanindex="4" >Guardar</button>
 
 </form>
