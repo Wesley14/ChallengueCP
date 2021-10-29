@@ -18,9 +18,8 @@
   <div class="form-group">
     <label for="exampleFormControlSelect1">Autor:</label>
     <select class="form-control"  id="autor" name="autor">
-      <option value="0">root</option>
       @foreach($usuarios as $usuario)
-        <option value="{{$usuario->id}}">{{$usuario->nombre}} {{$usuario->apellido}}</option>
+        <option value="{{$usuario->id}}">{{$usuario->name}} {{$usuario->lastname}}</option>
       @endforeach
       
     </select>
@@ -29,7 +28,7 @@
     <label for="exampleFormControlSelect1">Responsable:</label>
     <select class="form-control" id="exampleFormControlSelect1" id="responsable" name="responsable">
     @foreach($usuarios as $usuario)
-        <option value="{{$usuario->id}}">{{$usuario->nombre}} {{$usuario->apellido}}</option>
+        <option value="{{$usuario->id}}">{{$usuario->name}} {{$usuario->lastname}}</option>
       @endforeach
     </select>
   </div>

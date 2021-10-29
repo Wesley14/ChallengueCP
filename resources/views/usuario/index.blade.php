@@ -7,7 +7,7 @@
     <h1>Listado de Usuarios</h1>
 @stop
 @section('content')
-<a href="usuarios/create" class="btn btn-dark">Nuevo</a>
+<a href="users/create" class="btn btn-dark">Nuevo</a>
 &nbsp;
 <br>
 <br>
@@ -32,9 +32,9 @@
                   @endif
                   
                   <td>
-                      <form action="{{route ('usuarios.destroy', $usuario->id)}}" method="POST">
+                      <form action="{{route ('users.destroy', $usuario->id)}}" method="POST">
                        
-                        <a href="/usuarios/{{$usuario->id}}/edit" class="btn btn-info">Editar</a>
+                        <a href="/users/{{$usuario->id}}/edit" class="btn btn-info">Editar</a>
                         
                         @csrf
                         @method('DELETE')

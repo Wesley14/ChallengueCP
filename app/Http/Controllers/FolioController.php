@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Folio;
 use App\Models\Estatus;
-use App\Models\Usuario;
+use App\Models\User;
 
 use Illuminate\Support\Facades\DB;
 
@@ -24,10 +24,10 @@ class FolioController extends Controller
     {
         //$folios = Folio::all();
            $folios = DB::table('folios as f')
-            ->join('usuarios as ua', 'ua.id', '=', 'f.autor_id')
-            ->join('usuarios as ur', 'ur.id', '=', 'f.responsable_id')
+            ->join('users as ua', 'ua.id', '=', 'f.autor_id')
+            ->join('users as ur', 'ur.id', '=', 'f.responsable_id')
             ->join('estatuses as es','es.id','=','f.estatus_id')
-            ->select('f.id','f.codigo','f.titulo', 'f.descripcion', 'ua.nombre as autor','ur.nombre as nombre_responsable','f.fecha_esp_resolucion','es.nombre as estatus')
+            ->select('f.id','f.codigo','f.titulo', 'f.descripcion', 'ua.name as autor','ur.name as nombre_responsable','f.fecha_esp_resolucion','es.nombre as estatus')
             ->get();
 
             /*$folios = DB::table('folios')
@@ -48,8 +48,8 @@ class FolioController extends Controller
     public function create()
     {
         $estatus = Estatus::where('nombre', 'Solicitado')->first();
-        $usuarios = Usuario::all();
-        $cod = mt_rand(0, 9999);
+        $usuarios = User::all();
+        $cod = mt_rand(0, 99999);
          return view('folio.create',)->with('estatus',$estatus)
                                     ->with('usuarios',$usuarios)
                                     ->with('cod',$cod);
@@ -98,7 +98,7 @@ class FolioController extends Controller
     {
         $folio = Folio::find($id);
         $estatuses = Estatus::all();
-        $usuarios = Usuario::all();
+        $usuarios = User::all();
         return view('folio.edit')->with('folio', $folio)
                                  ->with('estatuses',$estatuses)
                                  ->with('usuarios',$usuarios);

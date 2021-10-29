@@ -45,4 +45,52 @@ class UserController extends Controller
         return redirect('/users');
     }
 
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $usuario = User::find($id);
+        return view('usuario.edit')->with('usuario', $usuario);
+    }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        
+        $usuarios = User::find($id);
+
+        $usuarios->name = $request->get('nombre');
+        $usuarios->lastname = $request->get('apellido');
+        $usuarios->email = $request->get('correo');
+        $usuarios->password = $request->get('contraseña');
+        $usuarios->fecha_nacimiento  = $request->get('fecha_nacimiento');
+        $usuarios->typeuser = $request->get('tipousuario');
+       // Wesley
+
+        $usuarios->save();
+
+
+        return redirect('/users');
+    }
+
+    public function destroy($id)
+    {
+        $usuario = User::find($id);
+        
+        $usuario->delete();
+
+        return redirect('/users');
+    }
+
+
 }

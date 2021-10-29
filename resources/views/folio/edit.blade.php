@@ -21,12 +21,12 @@
   <div class="form-group">
     <label for="exampleFormControlSelect1">Autor:</label>
     <select class="form-control" id="" id="autor" name="autor" value="{{$folio->autor_id}}">
-      <option value="0">root</option>
+      
       @foreach($usuarios as $usuario)
        @if($usuario->id == $folio->autor_id)
-        <option selected="selected" value="{{$usuario->id}}">{{$usuario->nombre}} {{$usuario->apellido}}</option>
+        <option selected="selected" value="{{$usuario->id}}">{{$usuario->name}} {{$usuario->lastname}}</option>
         @else
-        <option  value="{{$usuario->id}}">{{$usuario->nombre}} {{$usuario->apellido}}</option>
+        <option  value="{{$usuario->id}}">{{$usuario->name}} {{$usuario->lastname}}</option>
        @endif
       @endforeach
       
@@ -38,9 +38,9 @@
     <option value="0">root</option>
     @foreach($usuarios as $usuario)
        @if($usuario->id == $folio->responsable_id)
-        <option selected="selected" value="{{$usuario->id}}">{{$usuario->nombre}} {{$usuario->apellido}}</option>
+        <option selected="selected" value="{{$usuario->id}}">{{$usuario->name}} {{$usuario->lastname}}</option>
         @else
-        <option  value="{{$usuario->id}}">{{$usuario->nombre}} {{$usuario->apellido}}</option>
+        <option  value="{{$usuario->id}}">{{$usuario->name}} {{$usuario->lastname}}</option>
        @endif
       @endforeach
     </select>

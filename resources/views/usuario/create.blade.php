@@ -22,19 +22,19 @@
 </div>
 <div class="mb-3">
   <label for="" class="form-label">Contraseña:</label>
-  <input id="contraseña" name="contraseña" type="password"  class="form-control" tabindex=3 placeholder="Correo...">
+  <input id="contraseña" name="contraseña" type="password"  class="form-control" tabindex=3 placeholder="Pasword...">
 </div>
 <div class="mb-3">
   <label for="" class="form-label">Fecha de Nacimiento:</label>
   <input id="fecha_nacimiento" name="fecha_nacimiento" type="date"  class="form-control" tabindex=4 placeholder="">
 </div>
 <div class="form-group">
-    <label for="exampleFormControlSelect1">Autor:</label>
+    <label for="exampleFormControlSelect1">Tipo Usuario:</label>
     <select class="form-control"  id="tipousuario" name="tipousuario">
       <option value="0">Usuario</option>
-      <option value="0">Administrador</option>
+      <option value="1">Administrador</option>
     </select>
-  </div>
+</div>
 
 
 
