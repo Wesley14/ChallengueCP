@@ -38,7 +38,7 @@ class UserController extends Controller
         $usuarios->password = $request->get('contraseña');
         $usuarios->fecha_nacimiento  = $request->get('fecha_nacimiento');
         $usuarios->typeuser = $request->get('tipousuario');
-
+       // Wesley
 
         $usuarios->save();
 
